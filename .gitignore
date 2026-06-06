@@ -1,0 +1,12 @@
+# Build artifacts
+*.o
+*.out
+*.exe
+
+# Editor files
+*.swp
+*~
+.vscode/
+
+# Logs and downloads
+downloaded_*

@@ -1,0 +1,2 @@
+Sample file content.
+Use this file to verify that the server responds correctly to requests.
