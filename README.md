@@ -26,6 +26,3 @@ This project implements a simple POSIX TCP file server in C++17. The server list
   - Stores received files as `downloaded_<filename>`
 - `files/` contains sample files for the server to serve.
 - `logs.txt` captures request and error logs.
-
-`downloaded_<filename>`.
-- The server responds with a clear `ERROR:` message on failure.
