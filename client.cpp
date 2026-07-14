@@ -4,11 +4,14 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <cstring>
 
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <vector>
+#include <algorithm>
 #include <string>
 
 constexpr const char *SERVER_ADDRESS = "127.0.0.1";

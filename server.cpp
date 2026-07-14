@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <cstring>
 
 #include <atomic>
 #include <chrono>
@@ -93,7 +94,7 @@ void handle_client(int client_socket, const sockaddr_in &client_addr) {
 
     std::string filename = sanitize_filename(request);
     if (filename.empty()) {
-        std::string error_message = "ERROR: Invalid file request or path traversal attempt.";
+        std::string error_message = "ERROR: Invalid file request or path traversal attempt.\n";
         send_all(client_socket, error_message.c_str(), error_message.size());
         write_log("[SECURITY] Invalid request from " + std::string(client_ip) + ": " + request);
         close(client_socket);
@@ -104,7 +105,7 @@ void handle_client(int client_socket, const sockaddr_in &client_addr) {
     std::filesystem::path file_path = base_dir / filename;
 
     if (!std::filesystem::exists(file_path) || !std::filesystem::is_regular_file(file_path)) {
-        std::string error_message = "ERROR: File not found: " + filename;
+        std::string error_message = "ERROR: File not found: " + filename + "\n";
         send_all(client_socket, error_message.c_str(), error_message.size());
         write_log("[NOT_FOUND] " + std::string(client_ip) + " requested " + filename);
         close(client_socket);

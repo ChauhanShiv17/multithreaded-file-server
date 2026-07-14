@@ -10,3 +10,10 @@
 
 # Logs and downloads
 downloaded_*
+
+# Compiled binaries
+client
+server
+
+# Runtime logs
+logs.txt
